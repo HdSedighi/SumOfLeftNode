@@ -5,7 +5,9 @@ public class Solution {
         if (root.left != null && root.left.left == null && root.left.right == null) {
             sum += root.left.val; // if the left child is a leaf, add its value to sum
         }
-        sum += SumOfLeftLeaves(root.left); // recursively traverse left subtree
+        if (root.left != null) {
+            sum += SumOfLeftLeaves(root.left); // recursively traverse left subtree
+        }
         sum += SumOfLeftLeaves(root.right); // recursively traverse right subtree
         return sum;
     }
